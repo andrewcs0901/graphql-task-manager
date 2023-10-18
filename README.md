@@ -1,1 +1,1 @@
-# Task Manager GraphQL api
+# GraphQL Task Manager
