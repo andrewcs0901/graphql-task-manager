@@ -1,0 +1,19 @@
+schema {
+    query: Query
+}
+
+type Task {
+  id: ID
+  title: String
+  description: String
+}
+
+type User {
+  id: ID
+  name: String
+}
+
+type Query {
+  tasks: [Task]
+  task(id: ID!): Task
+}
