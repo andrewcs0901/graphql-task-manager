@@ -4,8 +4,8 @@ import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHt
 import express from 'express';
 import http from 'http';
 import cors from 'cors';
-import { typeDefs, resolvers } from './schema.js';
-import { login, getUserIdFromAuth } from './auth.js';
+import { typeDefs, resolvers } from './graphql/schema.js';
+import { login, getUserIdFromAuth } from './services/auth/auth.js'
 
 const port = 4000;
 
