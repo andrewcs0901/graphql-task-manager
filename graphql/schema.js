@@ -4,9 +4,9 @@ import { fileURLToPath } from 'url';
 import { findUserById, getUsers } from '../app/user/user.js';
 import { getTaskById, getTasks } from '../app/task/index.js';
 
-const __filename = fileURLToPath(import.meta.url);
+const filename = fileURLToPath(import.meta.url);
 
-const typeDefs = readFileSync(resolve(dirname(__filename), 'schema.graphql'), { encoding: 'utf-8' });
+const typeDefs = readFileSync(resolve(dirname(filename), 'schema.graphql'), { encoding: 'utf-8' });
 
 const resolvers = {
   Query: {

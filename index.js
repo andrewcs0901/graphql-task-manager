@@ -33,6 +33,7 @@ app.use(
         const userId = getUserIdFromAuth(authorization);
         return { userId };
       }
+      return {};
     }
   })
 );
@@ -50,5 +51,6 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-await new Promise((resolve) => httpServer.listen(port, resolve));
+await new Promise((resolve) => { httpServer.listen(port, resolve); });
+// eslint-disable-next-line no-console
 console.log(`🚀 Server ready at http://localhost:${port}/`);

@@ -10,7 +10,8 @@ const jwtConfig = {
   },
 
   expirationTime: () => {
-    return isNaN(+DEFAULT_TOKEN_EXPIRE_TIME) ? DEFAULT_TOKEN_EXPIRE_TIME : +DEFAULT_TOKEN_EXPIRE_TIME;
+    return Number.isNaN(+DEFAULT_TOKEN_EXPIRE_TIME)
+      ? DEFAULT_TOKEN_EXPIRE_TIME : +DEFAULT_TOKEN_EXPIRE_TIME;
   }
 };
 

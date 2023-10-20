@@ -12,7 +12,7 @@ const tasks = [
 ];
 
 const getTaskById = (id) => {
-  return tasks.find(task => task.id == id);
+  return tasks.find(task => task.id === id);
 };
 
 const getTasks = () => {

@@ -15,14 +15,14 @@ const findUser = async (username) => {
   if (!users.length) {
     await initDb();
   }
-  return users.find(user => user.username == username);
+  return users.find(user => user.username === username);
 };
 
 const findUserById = async (id) => {
   if (!users.length) {
     await initDb();
   }
-  return users.find(user => user.id == id);
+  return users.find(user => user.id === id);
 };
 
 const getUsers = () => {
