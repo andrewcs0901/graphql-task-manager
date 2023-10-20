@@ -14,19 +14,19 @@ const resolvers = {
       return getTasks();
     },
     task(_root, args) {
-      return getTaskById(args.id)
+      return getTaskById(args.id);
     },
-    users(){
+    users() {
       return getUsers();
     },
-    async loggedUser(_root, _args, contextValue){
-      if (!contextValue.userId){
+    async loggedUser(_root, _args, contextValue) {
+      if (!contextValue.userId) {
         return null;
       }
       const { username, id } = await findUserById(contextValue.userId);
       return { username, id };
     }
   }
-}
+};
 
 export { typeDefs, resolvers };

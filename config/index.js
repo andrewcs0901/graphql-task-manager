@@ -1,8 +1,8 @@
 import dotenv from 'dotenv-safe';
 
-dotenv.config()
+dotenv.config();
 
-const { SECRET, DEFAULT_TOKEN_EXPIRE_TIME, SALT_ROUNDS } = process.env
+const { SECRET, DEFAULT_TOKEN_EXPIRE_TIME, SALT_ROUNDS } = process.env;
 
 const jwtConfig = {
   secret() {
@@ -10,14 +10,14 @@ const jwtConfig = {
   },
 
   expirationTime: () => {
-    return isNaN(+DEFAULT_TOKEN_EXPIRE_TIME)? DEFAULT_TOKEN_EXPIRE_TIME : +DEFAULT_TOKEN_EXPIRE_TIME;
-  },
-}
+    return isNaN(+DEFAULT_TOKEN_EXPIRE_TIME) ? DEFAULT_TOKEN_EXPIRE_TIME : +DEFAULT_TOKEN_EXPIRE_TIME;
+  }
+};
 
 const security = {
   getSaltRounds: () => {
     return +SALT_ROUNDS;
   }
-}
+};
 
-export { jwtConfig, security }
+export { jwtConfig, security };
