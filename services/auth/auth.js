@@ -4,7 +4,6 @@ import { findUser } from '../../app/user/user.js';
 import { GraphQLError } from 'graphql';
 import { jwtConfig } from '../../config/index.js';
 
-
 const login = async ({ username, password }) => {
   const user = await findUser(username);
   if (!user) {
@@ -21,19 +20,19 @@ const login = async ({ username, password }) => {
   });
 
   return { token };
-}
+};
 
 const getUserIdFromAuth = (token) => {
   try {
     const { userId } = jwt.verify(token, jwtConfig.secret());
-    return userId
+    return userId;
   } catch (error) {
     throw new GraphQLError(error.message, {
       extensions: {
-        code: 'UNAUTHENTICATED',
-      },
+        code: 'UNAUTHENTICATED'
+      }
     });
   }
-}
+};
 
 export { login, getUserIdFromAuth };
