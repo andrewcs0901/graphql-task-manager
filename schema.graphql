@@ -10,10 +10,12 @@ type Task {
 
 type User {
   id: ID
-  name: String
+  username: String
 }
 
 type Query {
   tasks: [Task]
   task(id: ID!): Task
+  users: [User]
+  loggedUser: User
 }
