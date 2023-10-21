@@ -26,4 +26,5 @@ type Mutation {
   createTask(title: String!, description: String): Task
   updateTask(id: ID!, title: String, description: String, isDone: Boolean): Task
   deleteTask(id: ID!): Task
+  createUser(username: String!, password: String!): User
 }

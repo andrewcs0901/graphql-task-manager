@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { findUserById, getUsers } from '../app/user/user.js';
+import { createUser, findUserById, getUsers } from '../app/user/user.js';
 import {
   createTask,
   getDoneTasks,
@@ -11,6 +11,7 @@ import {
   deleteTask as delTask,
   updateTask as patchTask
 } from '../app/task/index.js';
+import { checkHasUserId } from '../app/utils/validators.js';
 
 const filename = fileURLToPath(import.meta.url);
 
@@ -34,9 +35,7 @@ const resolvers = {
       return getUsers();
     },
     async loggedUser(_root, _args, contextValue) {
-      if (!contextValue.userId) {
-        return null;
-      }
+      checkHasUserId(contextValue.userId);
       const { username, id } = await findUserById(contextValue.userId);
       return { username, id };
     }
@@ -50,6 +49,9 @@ const resolvers = {
     },
     deleteTask(_root, args, contextValue) {
       return delTask(contextValue.userId, args);
+    },
+    createUser(_root, args) {
+      return createUser(args);
     }
   }
 };
