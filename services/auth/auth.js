@@ -25,7 +25,7 @@ const login = async ({ username, password }) => {
 const getUserIdFromAuth = (token) => {
   try {
     const { userId } = jwt.verify(token, jwtConfig.secret());
-    return userId;
+    return `${userId}`;
   } catch (error) {
     throw new GraphQLError(error.message, {
       extensions: {
