@@ -41,7 +41,7 @@ Exemplo de resposta:
 ```
 
 2 - Copie o token retornado no corpo da requisição e adicione no header do [GraphQL Playground](http://localhost:4000/api/graphql) conforme a imagem abaixo:
-![Alt text](assets/authorization-example.png)
+![Captura de tela exibindo o preenchimento do cabeçalho "Authorization" com token](assets/authorization-example.png)
 
 ### GraphQL
 
@@ -53,11 +53,11 @@ O endpoint [GraphQL Playground](http://localhost:4000/api/graphql) é responsáv
 
 Cabeçalho de autorização vazio:
 
-![Alt text](assets/missing-authorization-error.png)
+![Captura de tela exibindo um JSON contendo uma mensagem de erro "You must be logged in to do this"](assets/missing-authorization-error.png)
 
 Token expirado:
 
-![Alt text](assets/expired-jwt-token.png)
+![Captura de tela exibindo um JSON contendo uma mensagem de erro "jwt expired"](assets/expired-jwt-token.png)
 
 #### Exemplos de consultas
 
