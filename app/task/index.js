@@ -1,3 +1,5 @@
+import { checkHasUserId } from '../utils/validators.js';
+
 const tasks = [
   {
     id: '1',
@@ -23,28 +25,34 @@ const tasks = [
 ];
 
 const getOwnerTasks = (owner) => {
+  checkHasUserId(owner);
   return tasks.filter(task => task.owner === owner);
 };
 
 const getTaskById = (owner, id) => {
+  checkHasUserId(owner);
   return getOwnerTasks(owner).find(task => task.id === id);
 };
 
 const getTasks = (owner) => {
+  checkHasUserId(owner);
   return getOwnerTasks(owner);
 };
 
 const getDoneTasks = (owner) => {
+  checkHasUserId(owner);
   return getOwnerTasks(owner).filter(task => task.isDone);
 };
 
 const getNotDoneTasks = (owner) => {
+  checkHasUserId(owner);
   return getOwnerTasks(owner).filter(task => !task.isDone);
 };
 
 const createTask = (owner, { title, description }) => {
+  checkHasUserId(owner);
   const task = {
-    id: String(tasks.length + 1),
+    id: String(tasks[tasks.length - 1] + 1),
     owner,
     isDone: false,
     title,
@@ -57,6 +65,7 @@ const createTask = (owner, { title, description }) => {
 const updateTask = (owner, {
   id, title, description, isDone
 }) => {
+  checkHasUserId(owner);
   const index = getOwnerTasks(owner).findIndex(task => task.id === id);
   if (title) {
     tasks[index].title = title;
@@ -70,6 +79,7 @@ const updateTask = (owner, {
 };
 
 const deleteTask = (owner, { id }) => {
+  checkHasUserId(owner);
   const task = getTaskById(owner, id);
   tasks.splice(tasks.indexOf(task), 1);
   return task;
