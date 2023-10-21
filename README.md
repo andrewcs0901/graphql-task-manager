@@ -45,7 +45,7 @@ Exemplo de resposta:
 
 ### GraphQL
 
-O endpoint [GraphQL Playground](http://localhost:4000/api/graphql) é responsável por realizar as operações de CRUD de tarefas e listagem de usuários .
+O endpoint [GraphQL Playground](http://localhost:4000/api/graphql) é responsável por realizar as operações de CRUD de tarefas e listagem de usuários.
 
 ⚠ Apenas a requisição de listagem de usuários não necessita de autenticação.
 
