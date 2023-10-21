@@ -4,6 +4,8 @@ schema {
 
 type Task {
   id: ID
+  owner: String,
+  isDone: Boolean,
   title: String
   description: String
 }
@@ -14,8 +16,14 @@ type User {
 }
 
 type Query {
-  tasks: [Task]
+  tasks(isDone: Boolean): [Task]
   task(id: ID!): Task
   users: [User]
   loggedUser: User
+}
+
+type Mutation {
+  createTask(title: String!, description: String): Task
+  updateTask(id: ID!, title: String, description: String, isDone: Boolean): Task
+  deleteTask(id: ID!): Task
 }
