@@ -49,10 +49,12 @@ const getNotDoneTasks = (owner) => {
   return getOwnerTasks(owner).filter(task => !task.isDone);
 };
 
+const incrementId = () => String(+tasks[tasks.length - 1].id + 1);
+
 const createTask = (owner, { title, description }) => {
   checkHasUserId(owner);
   const task = {
-    id: String(tasks[tasks.length - 1] + 1),
+    id: incrementId(),
     owner,
     isDone: false,
     title,
