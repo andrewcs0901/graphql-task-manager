@@ -47,7 +47,17 @@ Exemplo de resposta:
 
 O endpoint [GraphQL Playground](http://localhost:4000/api/graphql) é responsável por realizar as operações de CRUD de tarefas e listagem de usuários.
 
-⚠ Apenas a requisição de listagem de usuários não necessita de autenticação.
+⚠ Apenas a requisição de listagem de usuários não necessita de autenticação. Caso o token tenha expirado, será necessário realizar o [login](#login) novamente
+
+#### Erros comuns
+
+Cabeçalho de autorização vazio:
+
+![Alt text](assets/missing-authorization-error.png)
+
+Token expirado:
+
+![Alt text](assets/expired-jwt-token.png)
 
 #### Exemplos de consultas
 
