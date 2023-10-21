@@ -41,13 +41,23 @@ Exemplo de resposta:
 ```
 
 2 - Copie o token retornado no corpo da requisição e adicione no header do [GraphQL Playground](http://localhost:4000/api/graphql) conforme a imagem abaixo:
-![Alt text](assets/authorization-example.png)
+![Captura de tela exibindo o preenchimento do cabeçalho "Authorization" com token](assets/authorization-example.png)
 
 ### GraphQL
 
 O endpoint [GraphQL Playground](http://localhost:4000/api/graphql) é responsável por realizar as operações de CRUD de tarefas e listagem de usuários.
 
-⚠ Apenas a requisição de listagem de usuários não necessita de autenticação.
+⚠ Apenas a requisição de listagem de usuários não necessita de autenticação. Caso o token tenha expirado, será necessário realizar o [login](#login) novamente
+
+#### Erros comuns
+
+Cabeçalho de autorização vazio:
+
+![Captura de tela exibindo um JSON contendo uma mensagem de erro "You must be logged in to do this"](assets/missing-authorization-error.png)
+
+Token expirado:
+
+![Captura de tela exibindo um JSON contendo uma mensagem de erro "jwt expired"](assets/expired-jwt-token.png)
 
 #### Exemplos de consultas
 
