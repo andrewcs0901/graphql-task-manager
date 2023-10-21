@@ -8,6 +8,15 @@ Projeto de gestão de tarefas utilizando NodeJS, Apollo GraphQL
 npm install
 ```
 
+## Configuração
+
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
+```bash
+SECRET=MY_SUPER_SECRET_EXAMPLE # chave secreta para assinar o token JWT
+DEFAULT_TOKEN_EXPIRE_TIME=600 # tempo em que o token de login irá expirar, exemplo: 10 minutos = 600
+SALT_ROUNDS=10 # número de rounds para gerar o salt do hash da senha
+```
+
 ## Execução
 
 ```bash
