@@ -2,7 +2,15 @@ import { readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { findUserById, getUsers } from '../app/user/user.js';
-import { createTask, getDoneTasks, getNotDoneTasks, getTaskById, getTasks, deleteTask as delTask, updateTask as patchTask } from '../app/task/index.js';
+import {
+  createTask,
+  getDoneTasks,
+  getNotDoneTasks,
+  getTaskById,
+  getTasks,
+  deleteTask as delTask,
+  updateTask as patchTask
+} from '../app/task/index.js';
 
 const filename = fileURLToPath(import.meta.url);
 
@@ -11,10 +19,10 @@ const typeDefs = readFileSync(resolve(dirname(filename), 'schema.graphql'), { en
 const resolvers = {
   Query: {
     tasks(_root, args, contextValue) {
-      if(args.isDone === true){
+      if (args.isDone === true) {
         return getDoneTasks(contextValue.userId);
       }
-      if(args.isDone === false){
+      if (args.isDone === false) {
         return getNotDoneTasks(contextValue.userId);
       }
       return getTasks(contextValue.userId);
@@ -38,10 +46,10 @@ const resolvers = {
       return createTask(contextValue.userId, args);
     },
     updateTask(_root, args, contextValue) {
-      return patchTask(contextValue.userId, args)
+      return patchTask(contextValue.userId, args);
     },
     deleteTask(_root, args, contextValue) {
-      return delTask(contextValue.userId, args)
+      return delTask(contextValue.userId, args);
     }
   }
 };

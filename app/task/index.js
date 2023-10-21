@@ -22,6 +22,10 @@ const tasks = [
   }
 ];
 
+const getOwnerTasks = (owner) => {
+  return tasks.filter(task => task.owner === owner);
+};
+
 const getTaskById = (owner, id) => {
   return getOwnerTasks(owner).find(task => task.id === id);
 };
@@ -36,10 +40,6 @@ const getDoneTasks = (owner) => {
 
 const getNotDoneTasks = (owner) => {
   return getOwnerTasks(owner).filter(task => !task.isDone);
-}
-
-const getOwnerTasks = (owner) => {
-  return tasks.filter(task => task.owner === owner);
 };
 
 const createTask = (owner, { title, description }) => {
@@ -52,9 +52,11 @@ const createTask = (owner, { title, description }) => {
   };
   tasks.push(task);
   return task;
-}
+};
 
-const updateTask = (owner, { id, title, description, isDone }) => {
+const updateTask = (owner, {
+  id, title, description, isDone
+}) => {
   const index = getOwnerTasks(owner).findIndex(task => task.id === id);
   if (title) {
     tasks[index].title = title;
@@ -71,7 +73,8 @@ const deleteTask = (owner, { id }) => {
   const task = getTaskById(owner, id);
   tasks.splice(tasks.indexOf(task), 1);
   return task;
-}
+};
 
-
-export { getTaskById, getTasks, getDoneTasks, getNotDoneTasks, createTask, updateTask, deleteTask };
+export {
+  getTaskById, getTasks, getDoneTasks, getNotDoneTasks, createTask, updateTask, deleteTask
+};
